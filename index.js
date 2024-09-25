@@ -78,6 +78,28 @@ app.get("/api/upazilas", (req, res) => {
   });
 });
 
+app.get("/api/unions", (req, res) => {
+  const { upazilla_id } = req.query;
+  const filePath = path.join(__dirname, "data", "unions.json");
+  fs.readFile(filePath, "utf-8", (err, data) => {
+    if (err) {
+      return res.status(500).send({
+        status: "error",
+        message: "Unable to fetch unions",
+      });
+    }
+
+    const unions = JSON.parse(data).filter(
+      (union) => union.upazilla_id === upazilla_id
+    );
+
+    res.status(200).send({
+      status: "success",
+      data: unions,
+    });
+  });
+});
+
 // Default route
 app.get("/", (req, res) => {
   res.send("Server is running");
