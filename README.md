@@ -1,5 +1,3 @@
-#run server
-
-clone repo
-npm install
-nodemon start or npm run start
+#clone repo
+#npm install
+#nodemon start or npm run start
