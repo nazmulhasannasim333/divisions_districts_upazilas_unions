@@ -1,3 +1,6 @@
 #clone repo
-#npm install
-#nodemon start or npm run start
+
+```bash
+npm install
+nodemon start
+```
